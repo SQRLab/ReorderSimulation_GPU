@@ -57,7 +57,7 @@ def plot_computation_times(computation_times, selected_ion_counts, selected_shot
         plt.legend()
         plt.grid(True, which="both", ls="-", alpha=0.2)
         plt.tight_layout()
-        plt.savefig(f"computation_time_plot_ion_count_{ion_count}.png")
+        plt.savefig(rf"C:\Users\caleb\OneDrive\Desktop\Raahul's Workspace\ReorderSimulation_GPU\GPU_Based_Final\computation_times_plots\computation_time_plot_ion_count_{ion_count}.png")
         plt.close()
 
 def main():

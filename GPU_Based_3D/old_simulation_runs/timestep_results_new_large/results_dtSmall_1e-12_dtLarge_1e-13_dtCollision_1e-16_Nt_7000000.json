@@ -1,0 +1,16 @@
+{
+  "timestep_values": {
+    "dtSmall": 1e-12,
+    "dtCollision": 1e-16,
+    "dtLarge": 1e-13,
+    "Nt": 7000000
+  },
+  "grid_results": {
+    "Nr1001_Nz1001": {
+      "reorders": 28204,
+      "ejections": 64778,
+      "total_events": 92982,
+      "computation_time": 1360.138273099903
+    }
+  }
+}

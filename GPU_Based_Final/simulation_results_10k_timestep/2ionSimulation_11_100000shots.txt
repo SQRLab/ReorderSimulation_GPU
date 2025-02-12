@@ -1,0 +1,1 @@
+axial trapping frequency (MHz) 	 velocity(m/s) 	 ion collided with 	 angle(rads) 	 collision offset(m) 	 reorder? (1 is reorder 2 is ejection) 

@@ -20,7 +20,7 @@ def extract_info_from_filename(filename):
 
 def calculate_probability(df):
     total_rows = len(df)
-    non_zero_count = (df['reorder'] != 0).sum()
+    non_zero_count = (df['reorder'] == 2).sum()
     prob = non_zero_count / (total_rows - 1) if total_rows > 1 else 0
     return prob
 
@@ -79,7 +79,7 @@ def analyze_simulations(directory, selected_ion_sizes, selected_cell_sizes, sele
 
 def plot_results(df):
     # Create a directory for the plots if it doesn't exist
-    plot_dir = r"C:\Users\caleb\OneDrive\Desktop\Raahul's Workspace\ReorderSimulation_GPU\GPU_Based_Final\reorder_probability_plots"
+    plot_dir = r"C:\Users\caleb\OneDrive\Desktop\Raahul's Workspace\ReorderSimulation_GPU\GPU_Based_Final\reorder_probability_plots\debug"
     os.makedirs(plot_dir, exist_ok=True)
 
     # Plot for each ion size
@@ -88,12 +88,20 @@ def plot_results(df):
         ion_data = df[df['ion_size'] == ion_size]
         
         if not ion_data.empty:
+            # Get unique cell sizes for this ion size
+            available_cell_sizes = sorted(ion_data['cell_size'].unique())
+            
             for shot_size in ion_data['shot_size'].unique():
-                subset = ion_data[ion_data['shot_size'] == shot_size]
+                # Get data for this shot size and sort by cell_size
+                subset = ion_data[ion_data['shot_size'] == shot_size].sort_values('cell_size')
+                
                 plt.plot(subset['cell_size'], subset['probability'], 
                         marker='o', label=f'{shot_size} shots')
             
-            plt.xlabel('Cell Size')
+            # Set x-axis ticks to only show available cell sizes
+            plt.xticks(available_cell_sizes, available_cell_sizes)
+            
+            plt.xlabel('Number of Cells')
             plt.ylabel('Probability of Ejection or Reorder')
             plt.title(f'Probability vs Cell Size for {ion_size}-ion GPU Simulation')
             plt.legend()
@@ -106,7 +114,7 @@ def plot_results(df):
 
 def main():
     # Set the specific directory path
-    script_dir = r"C:\Users\caleb\OneDrive\Desktop\Raahul's Workspace\ReorderSimulation_GPU\GPU_Based_Final\simulation_results_10k"
+    script_dir = r"C:\Users\caleb\OneDrive\Desktop\Raahul's Workspace\ReorderSimulation_GPU\GPU_Based_Final\simulation_results_10k_timestep"
     
     # Get available parameters
     ion_sizes, cell_sizes, shot_sizes = get_available_parameters(script_dir)

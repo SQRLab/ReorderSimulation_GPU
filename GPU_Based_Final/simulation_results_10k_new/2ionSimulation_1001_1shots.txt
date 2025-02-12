@@ -1,0 +1,2 @@
+axial_freq(MHz)	velocity(m/s)	ion_collided	angle(rad)	offset(m)	reorder
+3141592.653589793	669.3693693693693	1	-1.2534637355232003	-6.13065326633166e-10	2

@@ -5,7 +5,7 @@ import h5py
 
 def main():
     # Specify the HDF5 file to read
-    trajectory_filename = 'simulation_results_test/trajectory_grid20001_ions4_shot242.h5'  # Adjust as needed
+    trajectory_filename = 'trajectory_grid20001_ions3_shot242.h5'  # Adjust as needed
 
     # Open the HDF5 file
     with h5py.File(trajectory_filename, 'r') as f:
@@ -136,7 +136,7 @@ def main():
     # Limit the number of frames for the animation if needed
     total_frames = total_timesteps
     #print(total_frames)
-    max_frames = 10000  # Adjust as needed
+    max_frames = 30000  # Adjust as needed
     step = max(1, total_frames // max_frames)
     frames = range(0, total_frames, step)
 

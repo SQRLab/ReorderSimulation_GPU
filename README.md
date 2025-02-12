@@ -7,4 +7,4 @@ Read [this](https://docs.google.com/document/d/1rbEWf1lX-9h8otXMlX9OXkP_hpeAQFf3
 
 Every single folder in GPU_Based_3D has a README to refer back.
 
-Note: Some of the files containing the trajectory data and fields data are still stored locally because of their size being too large.
+Note: Some of the files containing the trajectory data and fields data are still stored locally because of their size.
